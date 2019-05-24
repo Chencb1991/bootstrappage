@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" ></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts-en.common.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_893097_je71uz13n1g.css">
+</head>
+<style type="text/css">
+	body{
+		font-family: 'Microsoft Yahei'
+	}
+	.itemtab{
+		padding: 8px 0 0 0;
+		box-sizing: border-box;
+	}
+	.itemtab>div{
+		background: #fff;
+		padding: 10px;
+		box-sizing: border-box;
+		border: 1px solid #A6A6A6；
+		border-radius:8px;
+	}
+	.itemtab>div h3{
+		color: #303030;
+    font-size: 24px;
+    text-align: center;
+    font-family: Microsoft yahei;
+    margin-top: 16px
+	}
+	.itemtab>div .spanhz{
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		color: #808080;
+		padding-top: 20px
+	}
+	.spanhzb{
+		display: inline-block;
+		margin: auto;
+		text-align: center;
+		padding: 1px 5px;
+		border: 1px solid #DFE7FE;
+		border-radius: 3px
+	}
+	.itemtab .row{
+		margin: 0
+	}
+	.itemtab .row .col-xs-1{
+		padding: 0
+	}
+	.lines{
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		width: 2px;
+		height: 80%;
+		top: 15%;
+		background: #eee;
+
+	}
+	.tabspan,.tabspant,.tabspans{
+		display: inline-block;
+		padding: 1px 8px;
+		border: 1px solid #A9AEBB;
+		color:#9A9A9A;
+		cursor: pointer;
+	}
+	.tablist{
+		display: none;
+	}
+	.activetab{
+		background: #A9AEBB;
+		color:#fff;
+	}
+	h3.moneyloan{
+		color:#41A54D !important;
+		font-size: 24px !important;
+	}
+	span.moneyloan{
+		color:#41A54D ;
+		font-size: 14px
+	}
+	.tablistt{
+		display: none;
+	}
+	.tabspanj{
+		
+		color: #3A74F7;
+		display: inline-block;
+		padding: 1px 8px;
+		border: 1px solid #3A74F7;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+	.activetabj{
+		background: #3A74F7;
+		color: #fff
+	}
+	.tablists .itemtab div{
+		float: left;
+	}
+</style>
+<body style="background:#eee;width: 96%;margin: 15px auto 25px 15px;">
+<div class="container" style="width: 100%">
+	<div class="row" style="background: #fff;padding:20px 0">
+		<div class="col-xs-12">
+			<div class="row" style="font-weight: bold;font-size: 15px">
+					<div class="col-xs-1" style="width: 160px">
+						进件数据统计概览
+					</div>
+					<div class="col-xs-4">
+						<span class="tabspan activetab">今日</span>
+						<span class="tabspan">昨日</span>
+						<span class="tabspan">近7日</span>
+					</div>
+			</div>
+		</div>
+		<!-- 第一行第一个 -->
+		<div class="tablist" style="display: block;">
+			<div class="col-xs-5  itemtab">
+			<div>
+				<div class="row">
+					<div class="col-xs-4">
+						<span class="spanhz">渠道数量</span>
+						<h3>12</h3>
+						
+					</div>
+					<div class="col-xs-4 text-center">
+						<span class="spanhz">UV数</span>
+						<h3>880</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span> 
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-4 text-center">
+						<span class="spanhz">CPA(注册数)</span>
+						<h3>650</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-7  itemtab">
+			<div class="row" style="">
+				<div class="col-xs-3 text-center">
+						<span class="spanhz">申请借款数</span>
+						<h3>550</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span> 
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">CPS(通过数)</span>
+						<h3>120</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">UV转化率</span>
+						<h3>13.6%</h3>	
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-" style="color: #FE5454"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">CPA转化率</span>
+						<h3>18.4%</h3>	
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-" style="color: #FE5454"></span>
+						10%</span>
+					</div>
+			</div>
+		</div>
+		</div>
+		<!-- 第一行第二个 -->
+		<div class="tablist">
+			<div class="col-xs-5  itemtab">
+			<div>
+				<div class="row">
+					<div class="col-xs-4">
+						<span class="spanhz">渠道数量</span>
+						<h3>15</h3>
+						
+					</div>
+					<div class="col-xs-4 text-center">
+						<span class="spanhz">UV数</span>
+						<h3>820</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span> 
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-4 text-center">
+						<span class="spanhz">CPA(注册数)</span>
+						<h3>650</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						20%</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-7  itemtab">
+			<div class="row" style="">
+				<div class="col-xs-3 text-center">
+						<span class="spanhz">申请借款数</span>
+						<h3>530</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span> 
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">CPS(通过数)</span>
+						<h3>170</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">UV转化率</span>
+						<h3>13.6%</h3>	
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-" style="color: #FE5454"></span>
+						13%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">CPA转化率</span>
+						<h3>18.4%</h3>	
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-" style="color: #FE5454"></span>
+						10%</span>
+					</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- 第一行第三个 -->
+		<div class="tablist">
+			<div class="col-xs-5  itemtab">
+			<div>
+				<div class="row">
+					<div class="col-xs-4">
+						<span class="spanhz">渠道数量</span>
+						<h3>13</h3>
+						
+					</div>
+					<div class="col-xs-4 text-center">
+						<span class="spanhz">UV数</span>
+						<h3>830</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span> 
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-4 text-center">
+						<span class="spanhz">CPA(注册数)</span>
+						<h3>650</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-7  itemtab">
+			<div class="row" style="">
+				<div class="col-xs-3 text-center">
+						<span class="spanhz">申请借款数</span>
+						<h3>500</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span> 
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">CPS(通过数)</span>
+						<h3>100</h3>
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-1" style="color: #39BB4C"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">UV转化率</span>
+						<h3>11.6%</h3>	
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-" style="color: #FE5454"></span>
+						10%</span>
+					</div>
+					<div class="col-xs-3 text-center">
+						<span class="spanhz">CPA转化率</span>
+						<h3>18.4%</h3>	
+						<span class="spanhzb"><span style="color: #3A74F9">同比</span>
+							<span class="iconfont icon-web-icon-" style="color: #FE5454"></span>
+						8%</span>
+					</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- 第二行 -->
+
+<div class="container" style="width: 100%;margin-top: 15px">
+	<div class="row" style="background: #fff;padding:20px 0 10px 0">
+		<div class="col-xs-12">
+			<div class="row" style="font-weight: bold;font-size: 15px">
+					<div class="col-xs-1" style="width: 160px">
+						借款统计概览
+					</div>
+					<div class="col-xs-4">
+						<span class="tabspant activetab">今日</span>
+						<span class="tabspant">昨日</span>
+						<span class="tabspant">近7日</span>
+					</div>
+			</div>
+			<!-- 第二行第1个 -->
+			<div class="tablistt" style="display: block;">
+				<div class="col-xs-4  itemtab">
+					<div class="row">
+						<div  class="col-xs-4" style="position: relative;left: 10px">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 放款数</span>
+							<h3 style="font-size: 24px">110</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 放款金额</span>
+							<h3 class="moneyloan">1200000.00</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 应收金额</span>
+							<h3 class="moneyloan">1800000.00</h3>	
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-5  itemtab">
+					<div class="row">
+						<div class="col-xs-3" style="box-sizing: border-box;border-left: 1px solid #ddd">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款数</span>
+							<h3 style="font-size: 24px">80</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款金额</span>
+							<h3 style="font-size: 24px;color: #437AF9">16000.00</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 应收金额</span>
+							<h3 style="font-size: 24px;color: #437AF9">180000.00</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款率</span>
+							<h3 style="font-size: 24px;color: #437AF9">80%</h3>	
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3  itemtab">
+					<div class="row">
+						<div class="col-xs-4" style="box-sizing: border-box;border-left: 1px solid #ddd">
+							<span class="spanhz">展期用户数</span>
+							<h3 style="font-size: 24px">80</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz">展期金额</span>
+							<h3 style="font-size: 24px">5880.00</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz">展期率</span>
+							<h3 style="font-size: 24px">80%</h3>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 第二行第二个 -->
+			<div class="tablistt">
+				<div class="col-xs-4  itemtab">
+					<div class="row">
+						<div  class="col-xs-4" style="position: relative;left: 10px">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 放款数</span>
+							<h3 style="font-size: 24px">120</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 放款金额</span>
+							<h3 class="moneyloan">1200000.00</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 应收金额</span>
+							<h3 class="moneyloan">1800000.00</h3>	
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-5  itemtab">
+					<div class="row">
+						<div class="col-xs-3" style="box-sizing: border-box;border-left: 1px solid #ddd">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款数</span>
+							<h3 style="font-size: 24px">80</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款金额</span>
+							<h3 style="font-size: 24px;color: #437AF9">16000.00</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 应收金额</span>
+							<h3 style="font-size: 24px;color: #437AF9">180000.00</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款率</span>
+							<h3 style="font-size: 24px;color: #437AF9">80%</h3>	
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3  itemtab">
+					<div class="row">
+						<div class="col-xs-4" style="box-sizing: border-box;border-left: 1px solid #ddd">
+							<span class="spanhz">展期用户数</span>
+							<h3 style="font-size: 24px">80</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz">展期金额</span>
+							<h3 style="font-size: 24px">5880.00</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz">展期率</span>
+							<h3 style="font-size: 24px">80%</h3>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 第二行第三个 -->
+			<div class="tablistt">
+				<div class="col-xs-4  itemtab">
+					<div class="row">
+						<div  class="col-xs-4" style="position: relative;left: 10px">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 放款数</span>
+							<h3 style="font-size: 24px">130</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 放款金额</span>
+							<h3 class="moneyloan">1200000.00</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz"><span class="moneyloan">(首借)</span> 应收金额</span>
+							<h3 class="moneyloan">1800000.00</h3>	
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-5  itemtab">
+					<div class="row">
+						<div class="col-xs-3" style="box-sizing: border-box;border-left: 1px solid #ddd">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款数</span>
+							<h3 style="font-size: 24px">80</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款金额</span>
+							<h3 style="font-size: 24px;color: #437AF9">16000.00</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 应收金额</span>
+							<h3 style="font-size: 24px;color: #437AF9">180000.00</h3>	
+						</div>
+						<div class="col-xs-3">
+							<span class="spanhz"><span class="moneyloan" style="color: #437AF9">(复借)</span> 放款率</span>
+							<h3 style="font-size: 24px;color: #437AF9">80%</h3>	
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3  itemtab">
+					<div class="row">
+						<div class="col-xs-4" style="box-sizing: border-box;border-left: 1px solid #ddd">
+							<span class="spanhz">展期用户数</span>
+							<h3 style="font-size: 24px">80</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz">展期金额</span>
+							<h3 style="font-size: 24px">5880.00</h3>	
+						</div>
+						<div class="col-xs-4">
+							<span class="spanhz">展期率</span>
+							<h3 style="font-size: 24px">80%</h3>	
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+<!-- 还款统计 -->
+<div class="container" style="width: 100%;margin-top: 15px">
+	<div class="row" style="background: #fff;padding:20px 0 10px 0">
+		<div class="col-xs-12">
+			<div class="row" style="font-weight: bold;font-size: 15px">
+					<div class="col-xs-1" style="width: 160px">
+					还款统计概览
+					</div>
+					<div class="col-xs-2" style="width: 220px">
+						<span class="tabspanj activetabj">首借</span>
+						<span class="tabspanj">复借</span>
+						<span class="tabspanj">展期</span>
+					</div>
+					<div class="col-xs-2" style="width: 220px">
+						<span class="tabspans activetab">今日</span>
+						<span class="tabspans">昨日</span>
+						<span class="tabspans">近7日</span>
+					</div>
+			</div>
+
+			<div class="tablists" style="display: block;">
+				
+					<div class="col-xs-4 itemtab">
+							<div class="col-xs-4" style="position: relative;left: 15px">
+								<span class="spanhz">到期待还单数</span>
+								<h3>80</h3>	
+							</div>
+							<div class="col-xs-4">
+								<span class="spanhz">到期已还单数</span>
+								<h3>60</h3>	
+							</div>
+							<div class="col-xs-4">
+								<span class="spanhz">到期应收款</span>
+								<h3>8050.00</h3>
+							</div>
+					</div>
+
+					<div class="col-xs-4 itemtab">
+						<div class="col-xs-4">
+								<span class="spanhz">已还款</span>
+								<h3>125280.00</h3>	
+							</div>
+							<div class="col-xs-4">
+								<span class="spanhz">逾期单数</span>
+								<h3>80</h3>	
+							</div>
+							<div class="col-xs-4">
+								<span class="spanhz">逾期已还单数</span>
+								<h3>80</h3>	
+							</div>
+					</div>
+
+					<div class="col-xs-4 itemtab">
+						<div class="col-xs-3">
+								<span class="spanhz">逾期金额</span>
+								<h3>800.00</h3>	
+							</div>
+							<div class="col-xs-3">
+								<span class="spanhz">回款率</span>
+								<h3>80</h3>	
+							</div>
+							<div class="col-xs-3">
+								<span class="spanhz">逾期率</span>
+								<h3>80%</h3>
+							</div>
+							<div class="col-xs-3" style="box-sizing: border-box;border-left: 1px solid #ddd">
+								<span class="spanhz">综合回款率</span>
+								<h3 style="color: #FD5454">88.5%</h3>	
+							</div>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container" style="width: 100%;margin-top: 15px">
+	<div class="row" style="background: #fff;padding:15px">
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="height:400px;max-width:100%"></div>
+</div>
+</div>
+
+<script type="text/javascript">
+	var tabspans = document.querySelectorAll('.tabspan');
+	var tablist = document.querySelectorAll('.tablist');
+	for (let i = 0; i < tabspans.length; i++) {
+		tabspans[i].onclick=function(){
+			for(var j=0;j<tabspans.length;j++){
+				tablist[j].style.display='none',
+				tabspans[j].classList.remove('activetab')
+			}
+			tablist[i].style.display='block';
+			tabspans[i].classList.add('activetab')
+		}
+	}
+
+
+
+	var tabspanst = document.querySelectorAll('.tabspant');
+	var tablistt = document.querySelectorAll('.tablistt');
+	for (let i = 0; i < tabspanst.length; i++) {
+		tabspanst[i].onclick=function(){
+			for(var j=0;j<tabspanst.length;j++){
+				tablistt[j].style.display='none',
+				tabspanst[j].classList.remove('activetab')
+			}
+			tablistt[i].style.display='block';
+			tabspanst[i].classList.add('activetab')
+		}
+	}
+	
+	// var tabspansj = document.querySelectorAll('.tabspanj');
+	// for (let i = 0; i < tabspansj.length; i++) {
+	// 	tabspansj[i].onclick=function(){
+	// 		console.log(i);
+	// 		for(var j=0;j<tabspansj.length;j++){
+	// 			tabspansj[j].classList.remove('activetabj')
+	// 		};
+	// 		tabspansj[i].classList.add('activetabj');
+
+	// 		$.ajax({
+	// 			type:"POST",
+	// 			dataType: 'json',
+	// 			data:{
+
+	// 			},
+	// 			url:'/',
+	// 			success:function(res){
+	// 				var tjhtml = '';
+	// 				//.....
+	// 				$('.tablists').append(tjhtml)
+	// 			},
+	// 			error:function(){
+
+	// 			}
+	// 		})
+	// 	}
+	// }
+
+	// var tabspanss = document.querySelectorAll('.tabspans');
+	// for (let k = 0; k < tabspanss.length;k++) {
+	// 	tabspanss[k].onclick=function(){
+	// 		console.log(k);
+	// 		for(var j=0;j<tabspanss.length;j++){
+	// 			tabspanss[j].classList.remove('activetab')
+	// 		}
+	// 		tabspanss[k].classList.add('activetab')
+	// 	}
+	// }
+
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		$fid='0';
+		$bid='0';
+		$('.tabspanj').on('click',function(){
+			$(this).addClass("activetabj").siblings().removeClass("activetabj");
+				sessionStorage.setItem('fid',$(this).index());
+				$fid=$(this).index();
+				$.ajax({
+					type:"get",
+					url:'/',
+					data:{
+						tag1:$fid,
+						tag2:$bid
+					},
+					//dataType: 'json',
+					success:function(res){
+						var tjhtml = '';
+						//.....
+						$('.tablists').append(tjhtml)
+					},
+					error:function(e){  
+                         console.log(e);  
+             		}  
+				})
+		})
+
+
+		$('.tabspans').on('click',function(){
+			$(this).addClass("activetab").siblings().removeClass("activetab");
+			$bid=$(this).index();
+				$.ajax({
+					type:"get",
+					url:'/',
+					data:{
+						tag1:$fid,
+						tag2:$bid
+					},
+					//dataType: 'json',
+					success:function(res){
+						var tjhtml = '';
+						//.....
+						$('.tablists').append(tjhtml)
+					},
+					error:function(e){  
+                         console.log(e);  
+             		}  
+				})
+		})
+
+
+	})
+</script>
+<script type="text/javascript">
+		// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+		    title: {
+		        text: '进出金额统计'
+		    },
+		    tooltip: {
+		        trigger: 'axis'
+		    },
+		    legend: {
+		        data:['首借放款金额','首借还款金额','复借放款金额','复借还款金额'],
+		        textStyle:{
+		        	
+		        }
+		        
+		    },
+		    grid: {
+		        left: '3%',
+		        right: '4%',
+		        bottom: '15%',
+		        containLabel: true
+		    },
+		    toolbox: {
+		        feature: { 
+	            saveAsImage: {}
+	        }
+		    },
+		    
+		    xAxis: {
+		        type: 'category',  
+
+		        boundaryGap: false,
+		        axisLine: {onZero: false},
+		        data: ['11-11','11-12','11-13','11-14','11-15','11-16','11-17']
+		    },  //x
+		    yAxis: {
+		        type: 'value'
+		    },
+		    series: [
+		        {
+		            name:'首借放款金额',
+		            type:'line',
+		           	smooth: true,
+		            itemStyle:{  
+	                     normal:{  
+	                            lineStyle:{  
+	                                color:'#96E34B'  
+	                            }  
+	                        }  
+	                    }, //折线颜色
+		            data:[51200, 13020, 1001, 13400, 900, 2300, 61000],
+		            color:'#96E34B',
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top'
+		                }
+		            }
+		        },
+		        {
+		            name:'首借还款金额',
+		            type:'line',
+		            smooth: true,
+		            //stack: '总量',
+		            itemStyle:{  
+	                     normal:{  
+	                            lineStyle:{  
+	                                color:'#3CDEDE'  
+	                            }  
+	                        }  
+	                    },  //折线颜色
+		            data:[25200, 1820, 1910, 62340, 2900, 33000, 3100],
+		            color:'#3CDEDE',
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top'
+		                }
+		            }
+		        },
+		        {
+		            name:'复借放款金额',
+		            type:'line',
+		            smooth: true,
+		            //stack: '总量',
+		            itemStyle:{  
+	                     normal:{  
+	                            lineStyle:{  
+	                                color:'#62B6FF'  
+	                            }  
+	                        }  
+	                    },  //折线颜色
+		            data:[20200, 18320, 1910, 24340, 2700, 39000, 3100],
+		            color:'#62B6FF',
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top'
+		                }
+		            }
+		        },
+		        {
+		            name:'复借还款金额',
+		            type:'line',
+		            smooth: true,
+		            //stack: '总量',
+		            itemStyle:{  
+	                     normal:{  
+	                            lineStyle:{  
+	                                color:'#AE62FD'  
+	                            }  
+	                        }  
+	                    },  //折线颜色
+		            data:[22200, 1920, 1980, 12740, 29000, 31000, 31200],
+		            color:'#AE62FD',
+
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top'
+		                }
+		            }
+		        }
+		    ]
+		};
+
+		 // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+	</script>
+
+</body>
+</html>
